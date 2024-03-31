@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
 *{
     color: #fff;
     margin: 0px;
     padding: 0px;
+    font-family: 'Nunito'
 }
 body {
     background-color: #c9d6ff;
@@ -11,7 +14,7 @@ body {
 
 .container{
     border:solid 1px ;
-    top:  50px;
+    top:  -100px;
     left: 300px;
     justify-content: center;
     display: flex;
@@ -78,7 +81,7 @@ li {
     height: 80vh;
     border: solid #fff 1px;
     left: 900px;
-    bottom: 750px;
+    bottom: 900px;
     border-radius: 10px;
 
 }
@@ -130,4 +133,19 @@ color: green
 }
 .delete-{
     color: red
+}
+
+.vertucal{
+    writing-mode: vertical-lr;
+    transform: rotate(180deg);
+    display: block;
+    position: relative;
+    left: 260px;
+    top: 300px;
+}
+.horizontal{
+    display: inline;
+    position: relative;
+    left: 380px;
+    top: 95px;
 }

@@ -16,7 +16,7 @@ const arrayNoties = [{
     index:0,
     time: checkerTime.checked,
     importance:checkerImportance.checked,
-    noteText: 'test',
+    noteText: 'включить мозг',
     matter:0,
 }]
 
@@ -28,7 +28,9 @@ creater.onclick = function(){
     newNotes(arrayNoties[iterator].noteText,arrayNoties[iterator].time,arrayNoties[iterator].importance)
     checkerImportance.checked = false 
     checkerTime.checked = false 
+    noteData.value =''
     // console.log(arrayNoties[iterator].noteText)
+    console.log(arrayNoties[iterator].noteText,arrayNoties)
     }
     
 
@@ -84,7 +86,7 @@ function newNotes(note,time,importance){
         if(note != ''){
             listElement4.insertAdjacentHTML('beforeend',`
             <li>
-                <span class="span" data-span="1">
+                <span class="span" data-span="${iterator}">
                     ${note}
                 <span/>
             </li>
@@ -96,7 +98,7 @@ function newNotes(note,time,importance){
             `) 
            
 }}
-console.log(iterator)}
+}
 ///////////////////////////////////
 
 allNoties.addEventListener('click', (event) =>{
@@ -105,16 +107,16 @@ allNoties.addEventListener('click', (event) =>{
     target.remove()
     indexLine.remove()
     arrayNoties.splice(target.dataset.index,1)
-    const spanToDelete = document.querySelector('[data-span="${target.dataset.index}"]')
-    console.log(spanToDelete)
-
+    const spanToDelete = document.querySelector(`[data-span="${target.dataset.index}"]`)
+    spanToDelete.remove()
+    console.log(typeof (arrayNoties[iterator].noteText),arrayNoties)
 })
-/////////// test
+///////// test
 // document.addEventListener('click',(event) =>{
 //     const {target} = event
 //     console.log(target,arrayNoties)
 // })
-////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
 
 
 ////////////////////////////////////////////////////////
@@ -135,5 +137,5 @@ function newList(){
             noteText: noteData.value,
             matter: checkerTime.checked+checkerImportance.checked
         }
-        arrayNoties.push(newNote)
+        arrayNoties.splice(iterator,0,newNote)
 }}
